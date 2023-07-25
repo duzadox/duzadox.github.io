@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login/Registration Page</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif!important;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .mainscreen {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: #DFDBE5;
+      background-image: url("https://wallpaperaccess.com/full/3063067.png");
+      color: #963E7B;
+    }
+    
+    .card {
+      width: 60rem;
+      margin: auto;
+      background: white;
+      position: center;
+      align-self: center;
+      top: 50rem;
+      border-radius: 1.5rem;
+      box-shadow: 4px 3px 20px #3535358c;
+      display: flex;
+      flex-direction: row;
+    }
+    
+ 
+    .product {
+      object-fit: cover;
+      width: 20em;
+      height: 20em;
+      border-radius: 100%;
+    }
+    
+    .centre {
+      background-color: #ffffff;
+      width: 35rem;
+      border-bottom-left-radius: 1.5rem;
+      border-top-left-radius: 1.5rem;
+	  border-bottom-right-radius: 1.5rem;
+      border-top-right-radius: 1.5rem;
+      padding: 1rem 2rem 3rem 3rem;
+    }
+    
+    p {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin: .8rem 0;
+    }
+    
+    .inputbox {
+      color: #030303;
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border-bottom: 1.5px solid #ccc;
+      margin-bottom: 1rem;
+      border-radius: 0.3rem;
+      font-family: 'Roboto', sans-serif;
+      color: #615a5a;
+      font-size: 1.1rem;
+      font-weight: 500;
+      outline: none;
+    }
+       
+    .button {
+      background: linear-gradient(135deg, #753370 0%, #298096 100%);
+      padding: 15px;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      width: 100%;
+      letter-spacing: .11rem;
+      outline: none;
+    }
+    
+    .button:hover {
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 3px 3px 6px #38373785;
+    }
+    
+    .toggle-btn {
+      cursor: pointer;
+      font-size: 1rem;
+      color: #615a5a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="mainscreen">
+    <div class="card">
+     
+      <div class="centre">
+        <h1 id="form-title">Login</h1>
+        <form id="login-form" action="/login" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" class="inputbox" required>
+          
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" class="inputbox" required>
+          
+          <input type="submit" value="Login" class="button">
+          <p>Don't have an account? <span class="toggle-btn" onclick="toggleForm()">Register</span></p>
+        </form>
+        
+        <form id="register-form" action="/register" method="POST" style="display: none;">
+          <label for="new-username">Username:</label>
+          <input type="text" id="new-username" name="new-username" class="inputbox" required>
+          
+          <label for="new-password">Password:</label>
+          <input type="password" id="new-password" name="new-password" class="inputbox" required>
+          
+          <input type="submit" value="Register" class="button">
+          <p>Already have an account? <span class="toggle-btn" onclick="toggleForm()">Login</span></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function toggleForm() {
+      const loginForm = document.getElementById("login-form");
+      const registerForm = document.getElementById("register-form");
+      const formTitle = document.getElementById("form-title");
+      
+      if (loginForm.style.display === "none") {
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+        formTitle.textContent = "Login";
+      } else {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+        formTitle.textContent = "Register";
+      }
+    }
+  </script>
+</body>
+</html>
